@@ -13,7 +13,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.options(/^\/api\/.*$/, cors(corsOptions));
+app.options(/^\/.*$/, cors(corsOptions));
 
 app.post(/^\/.*$/, (req, res) => {
   const data = Array.isArray(req.body?.data) ? req.body.data : [];
