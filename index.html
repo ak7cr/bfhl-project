@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BFHL Tree Validator</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 24px;
+      }
+      textarea {
+        width: 100%;
+        min-height: 180px;
+        margin-bottom: 12px;
+      }
+      button {
+        padding: 8px 14px;
+        cursor: pointer;
+      }
+      pre {
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 6px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>BFHL Input</h1>
+    <textarea id="input" placeholder="One edge per line, e.g. A->B"></textarea>
+    <br />
+    <button onclick="send()">Submit</button>
+    <pre id="output"></pre>
+
+    <script>
+      async function send() {
+        const lines = document.getElementById("input").value.split("\n")
+
+        const res = await fetch("http://localhost:3000/bfhl", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data: lines }),
+        })
+
+        const json = await res.json()
+        document.getElementById("output").innerText = JSON.stringify(json, null, 2)
+      }
+    </script>
+  </body>
+</html>
