@@ -1,7 +1,7 @@
 {
   "name": "bfhl-project",
   "version": "1.0.0",
-  "description": "SRM Full Stack Engineering Challenge — BFHL API & Frontend",
+  "description": "BFHL API & Frontend — Node Hierarchy Visualizer",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

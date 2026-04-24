@@ -183,9 +183,9 @@ app.post("/bfhl", (req, res) => {
   }
 
   res.json({
-    user_id: process.env.USER_ID || "yourname_ddmmyyyy",
-    email_id: process.env.EMAIL_ID || "your_email@college.edu",
-    college_roll_number: process.env.COLLEGE_ROLL_NUMBER || "your_roll",
+    user_id: process.env.USER_ID || "johndoe_17091999",
+    email_id: process.env.EMAIL_ID || "john.doe@college.edu",
+    college_roll_number: process.env.COLLEGE_ROLL_NUMBER || "21CS1001",
     hierarchies,
     invalid_entries: invalidEntries,
     duplicate_edges: duplicateEdges,
