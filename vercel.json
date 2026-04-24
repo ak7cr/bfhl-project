@@ -1,7 +1,6 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/bfhl", "destination": "/api" },
-    { "source": "/(.*)", "destination": "/public/$1" }
+    { "source": "/bfhl", "destination": "/api/bfhl" }
   ]
 }
