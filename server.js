@@ -3,13 +3,19 @@ const cors = require("cors");
 const path = require("path");
 
 const app = express();
+const corsOptions = {
+  origin: "*",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.options(/^\/api\/.*$/, cors(corsOptions));
 
-app.post("*", (req, res) => {
+app.post(/^\/.*$/, (req, res) => {
   const data = Array.isArray(req.body?.data) ? req.body.data : [];
 
   const invalidEntries = [];
