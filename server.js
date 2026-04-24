@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 
-app.post("/bfhl", (req, res) => {
+app.post(["/api/bfhl", "/bfhl"], (req, res) => {
   const data = Array.isArray(req.body?.data) ? req.body.data : [];
 
   const invalidEntries = [];

@@ -17,7 +17,7 @@ async function submitData() {
   btn.disabled = true;
 
   try {
-    const res = await fetch('/bfhl', {
+    const res = await fetch('/api/bfhl', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ data: lines }),
