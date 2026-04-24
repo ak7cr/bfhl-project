@@ -17,7 +17,11 @@ async function submitData() {
   btn.disabled = true;
 
   try {
-    const res = await fetch('/api/bfhl', {
+    const API_BASE = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1')
+      ? '/api/bfhl'
+      : 'https://bfhl-project-b.vercel.app/api/bfhl';
+
+    const res = await fetch(API_BASE, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ data: lines }),
